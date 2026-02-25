@@ -300,13 +300,22 @@ export default function GiftShop() {
               whiteSpace:"nowrap",
               color: activeCategory === c ? T.textBlack1 : T.textGray3,
               background:"transparent",
-              border:"none",
-              borderBottom: activeCategory === c ? `2px solid ${T.blue}` : "2px solid transparent",
               cursor:"pointer",
               transition:"color 0.2s",
-              marginBottom:-1,
             }}>
               {c}
+              {/* _categoryTabActive_3rebp_267:after — ::after 가상 요소 대체 */}
+              <span style={{
+                display:"block",
+                position:"absolute",
+                bottom:-1,
+                left:0,
+                right:0,
+                height:2,
+                background: activeCategory === c ? T.blue : "transparent",
+                borderRadius:"1px 1px 0 0",
+                transition:"background 0.25s ease",
+              }} />
             </button>
           ))}
         </div>
