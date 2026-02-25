@@ -175,9 +175,13 @@ export default function GiftShop() {
       minHeight: "100dvh",
       backgroundColor: T.bgGray1,
       fontFamily: "'Apple SD Gothic Neo','Malgun Gothic','Noto Sans KR',sans-serif",
+      width: "100%",
       maxWidth: 480,
-      margin: "0 auto",
+      marginLeft: "auto",
+      marginRight: "auto",
       overflowX: "hidden",
+      position: "relative",
+      boxSizing: "border-box",
     }}>
 
       {/* ── 헤더 ── */}
@@ -228,7 +232,7 @@ export default function GiftShop() {
         </div>
 
         {/* _carousel_3rebp_132 */}
-        <div style={{ position:"relative", padding:"10px 0 20px", height:320 }}>
+        <div style={{ position:"relative", padding:"10px 0 20px", height:320, overflow:"hidden" }}>
           {popularItems.map((item, i) => (
             <CarouselCard
               key={i}
@@ -248,11 +252,12 @@ export default function GiftShop() {
         </div>
 
         {/* 가격 탭 (_priceFilterWrap_ + _priceTab_3rebp_208) */}
+        <div style={{ padding: "0 20px" }}>
         <div style={{
-          display:"flex", margin:"0 20px",
+          display:"flex",
           background: T.bgGray3,
           borderRadius: T.radiusMd,
-          padding:3,
+          padding: 3,
         }}>
           {priceRanges.map(p => (
             <button key={p} onClick={() => { setActivePrice(p); setShowMore(false); }} style={{
@@ -275,12 +280,14 @@ export default function GiftShop() {
             </button>
           ))}
         </div>
+        </div>
 
         {/* 카테고리 탭 (_categoryFilterWrap_ + _categoryTab_3rebp_243) */}
         <div style={{
           display:"flex", gap:4, padding:"0 20px", marginTop:14,
           borderBottom:`1px solid ${T.lineGray3}`,
           overflowX:"auto", scrollbarWidth:"none",
+          WebkitOverflowScrolling:"touch",
         }}>
           {categories.map(c => (
             <button key={c} onClick={() => { setActiveCategory(c); setShowMore(false); }} style={{
